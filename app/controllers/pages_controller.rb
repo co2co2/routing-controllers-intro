@@ -27,7 +27,6 @@ class PagesController < ApplicationController
   end
 
   def secrets
-
     if params[:magic_word] !="coconut"
       flash[:alert] = "Sorry, you're not authorized to see that page!"
       redirect_to "/welcome"
