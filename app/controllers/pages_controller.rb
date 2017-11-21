@@ -5,6 +5,7 @@ class PagesController < ApplicationController
   def welcome
     @header = "This is the welcome page"
   end
+
   def about
     @header = "We are ...."
   end
@@ -24,5 +25,14 @@ class PagesController < ApplicationController
     requested_size = params[:size]
   @kitten_url = "http://lorempixel.com/#{requested_size}/#{requested_size}/cats"
   end
+
+  def secrets
+
+    if params[:magic_word] !="coconut"
+      flash[:alert] = "Sorry, you're not authorized to see that page!"
+      redirect_to "/welcome"
+    end
+  end
+
 
 end
